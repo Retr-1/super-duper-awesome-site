@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Woooooooaaaaaaaaaaaa!</title>
+  <title>Why so serious ?</title>
   <style>
     body {
       margin: 0;
@@ -49,14 +49,15 @@
       }
     }
 
-    .buttons{
+    .buttons {
       display: flex;
       flex-direction: row;
       gap: 10px;
     }
   
-    button {
-    padding: 0.75rem 2rem;
+    .y-button {
+    position: relative;
+    padding: 1rem 2rem;
     font-size: 1.25rem;
     font-weight: bold;
     border: none;
@@ -64,8 +65,8 @@
     cursor: pointer;      
     }
   
-  button:hover {
-    padding: 0.75rem 2rem;
+  .y-button:hover {
+    padding: 1rem 2rem;
     font-size: 1.25rem;
     font-weight: bold;
     border: none;
@@ -85,14 +86,54 @@
     transition: transform 0.2s ease-in-out;
     transform: scale(1.5);
     background-position: 50% 50%;
+    z-index: 999;
+  }
+
+  .img-btn {
+    position: relative;
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  /* The grey overlay */
+  .img-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: grey; /* solid grey placeholder */
+    z-index: -1; /* put behind text */
+    transition: opacity 0.6s ease;
+  }
+
+  /* The background image */
+  .img-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://media.tenor.com/OA8KFcZxPjsAAAAm/sad-emoji.webp") center/cover no-repeat;
+    background-size: contain;
+    z-index: -2; /* behind grey layer */
+  }
+
+  /* On hover → fade out grey */
+  .img-btn:hover::before {
+    opacity: 0;
   }
   </style>
 </head>
 <body>
   <h1>not straight ?</h1>
   <div class="buttons">
-    <a href="https://img.pastemagazine.com/wp-content/avuploads/2020/05/23112656/sqlg3wj1f87anjnftsqr-1.jpg"><button>YES</button></a>
-    <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><button>NO (rickroll)</button></a>
+    <a href="https://www.grindr.com"><button class="y-button">YES</button></a>
+    <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><button class="img-btn">NO (rickroll)</button></a>
   </div>
 
   <script>
