@@ -10,23 +10,91 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       height: 100vh;
       background: #0b0f14;
     }
     h1 {
       font-size: 4rem;
       font-family: sans-serif;
-      background: conic-gradient(from var(--angle),
-        #ff004c, #ff7a00, #ffd400, #19ff62, #00e5ff, #006eff, #8a00ff, #ff00d4, #ff004c);
+      background: linear-gradient(
+        90deg,
+        #ff004c,
+        #ff7a00,
+        #ffd400,
+        #19ff62,
+        #00e5ff,
+        #006eff,
+        #8a00ff,
+        #ff00d4,
+        #ff004c
+      );
+      background-size: 200% auto; /* makes gradient wider so we can slide it */
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 6px rgba(255,255,255,.35), 0 0 14px rgba(255,255,255,.25), 0 0 28px rgba(255,255,255,.15);
+      text-shadow: 0 0 6px rgba(255,255,255,.35),
+                   0 0 14px rgba(255,255,255,.25),
+                   0 0 28px rgba(255,255,255,.15);
+      animation: moveGradient 1s linear infinite;
+      text-shadow: 0 0 15px rgba(255,255,255,.35), 0 0 14px rgba(255,255,255,.25), 0 0 28px rgba(255,255,255,.15);
     }
+
+    @keyframes moveGradient {
+      from {
+        background-position: 0% 50%;
+      }
+      to {
+        background-position: 200% 50%;
+      }
+    }
+
+    .buttons{
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+  
+    button {
+    padding: 0.75rem 2rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;      
+    }
+  
+  button:hover {
+    padding: 0.75rem 2rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+      background: conic-gradient(from var(--angle),
+        #ff004c, #ff7a00, #ffd400, #19ff62, #00e5ff, #006eff, #8a00ff, #ff00d4, #ff004c);
+    background-size: 200% auto;
+    color: #fff;
+    text-shadow: 0 0 6px rgba(255,255,255,.35),
+                0 0 14px rgba(255,255,255,.25),
+                0 0 28px rgba(255,255,255,.15);
+    box-shadow: 0 0 6px rgba(255,255,255,.35),
+                0 0 14px rgba(255,255,255,.25),
+                0 0 28px rgba(255,255,255,.15);
+    /* animation: moveGradient 1s linear infinite alternate; */
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.5);
+    background-position: 50% 50%;
+  }
   </style>
 </head>
 <body>
-  <h1>Woooooooaaaaaaaaaaaa!</h1>
+  <h1>not straight ?</h1>
+  <div class="buttons">
+    <a href="https://img.pastemagazine.com/wp-content/avuploads/2020/05/23112656/sqlg3wj1f87anjnftsqr-1.jpg"><button>YES</button></a>
+    <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><button>NO (rickroll)</button></a>
+  </div>
+
   <script>
     (function(){
       const root = document.documentElement;
