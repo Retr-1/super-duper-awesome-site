@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Woooooooaaaaaaaaaaaa!</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #0b0f14;
+    }
+    h1 {
+      font-size: 4rem;
+      font-family: sans-serif;
+      background: conic-gradient(from var(--angle),
+        #ff004c, #ff7a00, #ffd400, #19ff62, #00e5ff, #006eff, #8a00ff, #ff00d4, #ff004c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 6px rgba(255,255,255,.35), 0 0 14px rgba(255,255,255,.25), 0 0 28px rgba(255,255,255,.15);
+    }
+  </style>
+</head>
+<body>
+  <h1>Woooooooaaaaaaaaaaaa!</h1>
+  <script>
+    (function(){
+      const root = document.documentElement;
+      let start = null;
+      function loop(ts){
+        if(start === null) start = ts;
+        const elapsed = ts - start;
+        const angle = (elapsed) % 360;
+        root.style.setProperty('--angle', angle + 'deg');
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+    })();
+  </script>
+</body>
+</html>
